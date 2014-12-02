@@ -1,0 +1,34 @@
+{
+  "name": "chech-lajan",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "leny",
+    "email": "info@flatland.be",
+    "url": "http://leny.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/HEPL-RIA/chech-lajan.git"
+  },
+  "config": {
+    "express": {
+      "port": 34567,
+      "cache": false
+    },
+    "mongodb": {
+      "host": "127.0.0.1",
+      "port": 27017,
+      "base": "chech-lajan",
+      "log": true
+    }
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "express": "^4.10.1",
+    "jade": "^1.7.0",
+    "jeyo-distans": "^0.2.0",
+    "mongoose": "^3.8.19"
+  }
+}

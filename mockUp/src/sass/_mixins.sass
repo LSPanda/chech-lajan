@@ -1,0 +1,39 @@
+=transition( $where, $times )
+	-webkit-transition: $where $times
+	-moz-transition:    $where $times
+	-ms-transition:     $where $times
+	transition:         $where $times
+=border-radius( $radius )
+	-webkit-border-radius: $radius
+	-moz-border-radius:    $radius
+	-ms-border-radius:     $radius
+	border-radius:         $radius
+=box-shadows( $angle, $blur, $color, $opa )
+	-webkit-box-shadow: $angle $angle $blur 0px rgba($color, $color, $color, $opa)
+	-moz-box-shadow:    $angle $angle $blur 0px rgba($color, $color, $color, $opa)
+	box-shadow:         $angle $angle $blur 0px rgba($color, $color, $color, $opa)
+=grayScale( $level )
+	-webkit-filter: grayscale( $level )
+	-moz-filter: 	grayscale( $level )
+	-ms-filter: 	grayscale( $level )
+	-o-filter: 		grayscale( $level )
+=menuFontStyle( $size )
+	font-family: $navFont
+	font-size: $size
+	text-transform: uppercase
+=headingStyle( $size )
+	font-family: $headingFont
+	font-size: $size
+	color: $headingColor
+=quoteStyle( $size )
+	font-family: $quoteFont
+	font-size: $size
+	font-style: italic
+	color: $quoteColor
+=clearFloat()
+	display: block
+	clear: both
+	content: ""
+=getOffMyPage()
+	text-indent: -100em
+	display: none
