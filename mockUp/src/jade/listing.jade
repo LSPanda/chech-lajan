@@ -1,0 +1,32 @@
+extends layout
+
+block title
+    title Chech lajan - List
+
+block content
+    h2.hidden Liste des banques à proximité
+    div#gmap
+    div.container
+        h5 0 banque(s) à proximité
+        ul
+            li 
+                a(href="solo.html") Banque 1
+            li
+                a(href="solo.html") Banque 2
+            li
+                a(href="solo.html") Banque 3
+            li
+                a(href="solo.html") Banque 4
+            li
+                a(href="solo.html") Banque 5
+            li
+                a(href="solo.html") Banque 6
+            li
+                a(href="solo.html") Banque 7
+        div.load
+            img(src="../css/images/reload.png")
+
+block script
+    script(src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDHJ3p-sn1Y5tJGrzH9MF5cbR5sdsDmhfg&sensor=false")
+    script(src="../js/vendor/jquery.js")
+    script(src="../js/script.min.js")
