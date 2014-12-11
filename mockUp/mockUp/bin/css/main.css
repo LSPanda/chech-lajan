@@ -162,6 +162,10 @@ html {
   font-weight: bold;
   color: #f0f0f0;
 }
+.header__title .title__link {
+  text-decoration: none;
+  color: #fff;
+}
 .header__menu,
 .header__refresh {
   display: block;
@@ -209,6 +213,44 @@ html {
 .banks__dist {
   float: right;
   color: #3498db;
+}
+.bank {
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  width: 260px;
+  margin: 0 auto;
+  background: #f0f0f0;
+  box-shadow: 0px 5px 10px 0px rgba(50,50,50,0.75);
+}
+.bank__title {
+  font: 1.15em "Lobster", cursive;
+  font-weight: bold;
+  color: #fff;
+  padding: 0.75em 1.5em;
+  background-color: #3498db;
+}
+.bank__content {
+  padding: 0.75em 2em;
+}
+.bank__content:before,
+.bank__content:after {
+  content: " ";
+  display: table;
+}
+.bank__content:after {
+  clear: both;
+}
+.bank__content .bank__address {
+  float: left;
+}
+.bank__content .bank__dist {
+  float: right;
+  color: #fff;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  background-color: #3498db;
 }
 @-moz-keyframes load {
   0% {
