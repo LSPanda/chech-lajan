@@ -1,0 +1,25 @@
+// - index.html
+
+extends layout
+
+block title
+    title Bank
+    
+block style
+    link(rel="stylesheet" href="css/main.css")
+
+block content
+    div#gmap
+    div.list
+        - var i = 0
+        while i < 8
+            div.list__item
+                a(href="bank.html").banks__link
+                    div.banks
+                        img(src="css/images/argenta.png", alt="Logo de la banque").banks__img
+                        p.banks__body Nom de la banque
+                        span.banks__dist 2km
+            - i++
+            
+    div.bank
+        
