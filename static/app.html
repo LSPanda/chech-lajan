@@ -1,0 +1,61 @@
+<!DOCTYPE html><!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <title>Chech lajan - Accueil</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width-device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
+  <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+
+
+  <div id="gmap"></div>
+
+  <div class="containter">
+      <!-- <header></header> -->
+      <!-- <section id="listing"></section> -->
+      <!-- <section id="soloBank"></section> -->
+      <!-- <section id="detailBank"></section> -->
+  </div>
+
+  <script type="text/template" id="listing">
+      <h5>0 banque(s) à proximité</h5>
+      <ul>
+      </ul>
+      <div class="load"><a href="#"><img src="../css/images/reload.png"></a></div>
+  </script>
+
+  <script type="text/template" id="soloBank" >
+      <h5>Banque 1</h5>
+      <div class="content">
+          <p>information banque</p>
+      </div>
+      <div class="back left"><a href="#"><img src="../css/images/back.png" alt=""></a></div>
+      <div class="select right"><a href="#"><img src="../css/images/go.png" alt=""></a></div>
+  </script>
+
+  <script type="text/template" id="detailBank" >
+      <h5>Nom de la banque</h5>
+      <div class="content">
+          <p>information banque</p>
+      </div>
+      <div class="back"><a href="#"><img src="../css/images/back.png" alt=""></a></div>
+  </script>
+
+  <script src="js/libs.min.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDHJ3p-sn1Y5tJGrzH9MF5cbR5sdsDmhfg&amp;sensor=false"></script>
+  <script>
+      window.app = {
+          "id": "chech-lajan",
+          "name": "Chèch Lajan",
+          "version": "0.0.1"
+      };
+  </script>
+  <script src="js/app.min.js"></script>
+</body>
