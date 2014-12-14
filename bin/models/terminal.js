@@ -1,8 +1,8 @@
 /* Chèch Lajan
  *
- * /models/terminal.js - Temrinals MongoDB Model
+ * /models/terminal.js - Terminals MongoDB Model
  *
- * started @ 17/11/14
+ * started @ 10/11/14
  */
 
 "use strict";
@@ -36,14 +36,13 @@ module.exports = function( db, Mongoose, MongooseUtils ) {
     oSchema.plugin( MongooseUtils.paranoid );
 
     oSchema.methods.clean = function( oPosition ) {
-        // Cleaning empty state
-        if( this.empty ){
+        // cleaning empty state
+        if( this.empty ) {
             if( this.updatedAt.getDate() !== ( new Date() ).getDate() ) {
                 this.empty = false;
                 this.save();
             }
         }
-
         return {
             "id": this.id,
             "date": this.createdAt,

@@ -16,7 +16,7 @@ module.exports = function( grunt ) {
     ];
 
     grunt.initConfig( {
-        "bowserify": {
+        "browserify": {
             "libs": {
                 "options": {
                     "require": aBrowserifyLibs

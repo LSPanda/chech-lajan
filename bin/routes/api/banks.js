@@ -22,7 +22,6 @@ var list = function( oRequest, oResponse ) {
         .sort( "name" )
         .exec( function( oError, aBanks ) {
             var aCleanedBanks = [];
-
             if( oError ) {
                 return api.error( oRequest, oResponse, oError.type, oError );
             }
@@ -36,7 +35,7 @@ var list = function( oRequest, oResponse ) {
         } );
 };
 
-// [GET] /api/bank/:id
+// [GET] /api/banks/:id
 
 var detail = function( oRequest, oResponse ) {
     Bank
@@ -45,7 +44,7 @@ var detail = function( oRequest, oResponse ) {
             if( oError ) {
                 return api.error( oRequest, oResponse, oError.type, oError );
             }
-            if( oError ) {
+            if( !oBank ) {
                 return api.error( oRequest, oResponse, "BANK_UNKNOWN", new Error( "BANK_UNKNOWN" ) );
             }
             api.send( oRequest, oResponse, oBank.clean() );

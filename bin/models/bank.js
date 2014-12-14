@@ -39,7 +39,7 @@ module.exports = function( db, Mongoose, MongooseUtils ) {
             "color": this.color,
             "icon": this.icon,
             "url": this.url
-        }
+        };
     };
 
     return db.model( "Bank", oSchema );

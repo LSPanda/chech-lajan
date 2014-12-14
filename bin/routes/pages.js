@@ -7,7 +7,7 @@
 
 "use strict";
 
-var root = __dirname + "/.."
+var root = __dirname + "/..";
 
 // [GET] / - homepage
 var homepage = function( oRequest, oResponse ) {

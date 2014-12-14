@@ -4,18 +4,20 @@
 *
 * started @ 03/12/14
 */
+var $ = require( "jquery" ),
+    FastClick = require( "fastclick" ),
+    Router = require( "./router" );
 
-( function( $, FastClick ) {
+"use strict";
 
-    "use strict";
+window.app.now = new Date();
 
-    window.app.now = new Date();
+$( function() {
+    FastClick( document.body );
 
-    $( function() {
-        FastClick( document.body );
+    console.log( window.app );
+    console.log( "ready." );
 
-        console.log( window.app );
-        console.log( "ready." );
-    } );
-
-} )( require( "jquery" ), require( "fastclick" ) );
+    window.app.router = new Router();
+    window.app.router.start();
+} );

@@ -17,18 +17,34 @@
   <div id="gmap"></div>
 
   <div class="wrapper">
-      <!-- <header></header> -->
+      <!-- header insertion point -->
+      <!-- result insertion point -->
       <!-- <section id="listing"></section> -->
       <!-- <section id="soloBank"></section> -->
   </div>
 
-  <script type="text/template" id="listing">
-      <div class="list">
-          <div class="list__item"><a href="bank.html" class="banks__link">
-          <div class="banks"><img src="css/images/argenta.png" alt="Logo de la banque" class="banks__img">
-          <p class="banks__body">Nom de la banque</p><span class="banks__dist">2km</span>
-          </div></a></div>
+  <script type="text/template" id="tpl_header">
+      <div class="header__wrapper">
+          <div class="header__title">
+          <h1> <a href="#" class="title__link">Chech-lajan</a></h1>
+          </div>
+          <div id="reload"  class="header__refresh"><a href="#"><img src="css/images/refresh.png" alt="Icone de raffraichissement de l'application" class="loadAnimation"></a></div>
+          <div class="header__menu"><a href="#"><img src="css/images/cash.png" alt="Icone de menu pour l'application"></a></div>
       </div>
+  </script>
+
+  <script type="text/template" id="tpl_result-list">
+      <div class="list__item"><a href="bank.html" class="banks__link">
+      <div class="banks"><img src="css/images/argenta.png" alt="Logo de la banque" class="banks__img">
+      <p class="banks__body">Nom de la banque</p><span class="banks__dist">2km</span>
+      </div></a></div>
+  </script>
+
+  <script type="text/template" id="tpl_result-list-element">
+      <div class="list__item"><a href="bank.html" class="banks__link">
+      <div class="banks"><img src="css/images/argenta.png" alt="Logo de la banque" class="banks__img">
+      <p class="banks__body">Nom de la banque</p><span class="banks__dist">2km</span>
+      </div></a></div>
   </script>
 
   <script type="text/template" id="soloBank" >
@@ -52,7 +68,8 @@
       window.app = {
           "id": "chech-lajan",
           "name": "Chèch Lajan",
-          "version": "0.0.1"
+          "version": "0.0.1",
+          "api_url": "http://192.168.111.202"
       };
   </script>
   <script src="js/app.min.js"></script>

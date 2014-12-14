@@ -1,8 +1,8 @@
 /* Chèch Lajan
  *
- * /routes/api/terminals.js - express routes for terminal api calls
+ * /routes/api/terminals.js - express routes for terminals api calls
  *
- * started @ 17/11/14
+ * started @ 10/11/14
  */
 
 "use strict";
@@ -22,16 +22,14 @@ var iMaxSearchRadius = 20,
 var list = function( oRequest, oResponse ) {
     var fLatitude = parseFloat( oRequest.query.latitude ),
         fLongitude = parseFloat( oRequest.query.longitude ),
-        iRadius = 5,
         iGivenRadius = +oRequest.query.radius,
-        iSearchRadiusSize,
+        iSearchRadiusSize,  // parseInt( oRequest.query.radius, 10 )
         oPosition = {
             "latitude": fLatitude,
             "longitude": fLongitude
         };
-
     if( !fLatitude || !fLongitude ) {
-        return api.error( oRequest, oResponse, "TERMINAL_LIST_NO_POSITION",oRequest.query )
+        return api.error( oRequest, oResponse, "TERMINALS_LIST_NO_POSITION_GIVEN", oRequest.query );
     }
     if( isNaN( iGivenRadius ) || iGivenRadius > iMaxSearchRadius ) {
         iGivenRadius = 5;
@@ -64,9 +62,7 @@ var list = function( oRequest, oResponse ) {
             aCleanedTerminals.sort( function( oOne, oTwo ) {
                 return oOne.distance - oTwo.distance;
             } );
-            console.log( "J'ai trouvé " + aCleanedTerminals.length + " terminaux" )
             aSplicedTerminals = aCleanedTerminals.splice( 0, 10 );
-            console.log( "Et je vais afficher seulement " + aSplicedTerminals.length + " terminaux" )
             api.send( oRequest, oResponse, aSplicedTerminals );
         } );
 };
@@ -76,23 +72,23 @@ var empty = function( oRequest, oResponse ) {
         .findById( oRequest.params.id )
         .exec( function( oError, oTerminal ) {
             if( oError ) {
-                return api.error( oRequest. oResponse, oError.type, oError );
+                return api.error( oRequest, oResponse, oError.type, oError );
             }
             if( !oTerminal ) {
-                return api.error( oRequest. oResponse, "TERMINAL_UNKNOWS" );
+                return api.error( oRequest, oResponse, "TERMINAL_UNKNOWN" );
             }
             oTerminal.empty = true;
             oTerminal.save( function( oError, oSavedTerminal ) {
                 if( oError ) {
-                    return api.error( oRequest. oResponse, oError.type, oError );
+                    return api.error( oRequest, oResponse, oError.type, oError );
                 }
                 api.send( oRequest, oResponse, true );
             } );
-        } )
+        } );
 };
 
 // Declare routes
 exports.init = function( oApp ) {
     oApp.get( "/api/terminals", list );
-    oApp.put( "/api/terminals/:id/empty", detail );
+    oApp.put( "/api/terminals/:id/empty", empty );
 };
