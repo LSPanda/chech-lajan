@@ -2,11 +2,12 @@
 ## Clean Grunt files
 #############
 
-mockUp/node_modules
-mockUp/bin/js/script.js
-mockUp/bin/css/*.css
-mockUp/bin/index.html
-mockUp/bin/html
+mockUp
+__mockUp/node_modules
+__mockUp/bin/js/script.js
+__mockUp/bin/css/*.css
+__mockUp/bin/index.html
+__mockUp/bin/html
 
 
 #############
