@@ -14,16 +14,15 @@ Backbone.$ = require( "jquery" );
 
 module.exports = Backbone.Model.extend( {
 
-    "urlRoot": "api/terminals",
+    "urlRoot": "/api/terminals",
 
-    "parse": function( oRepsonse ) {
+    "parse": function( oResponse ) {
         // TODO handle errors
         if( oResponse.data && oResponse.url ) {
             return oResponse.data;
         } else {
-            return oResponse
+            return oResponse;
         }
-
     }
 
 } );

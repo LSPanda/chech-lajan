@@ -1,18 +1,19 @@
 /* Chèch Lajan
-*
-* /viwes/terminals-list-element.js - backbone terminals list
-*
-* started @ 12/12/14
-*/
+ *
+ * /views/terminals-list-element.js - backbone terminals list view
+ *
+ * started @ 12/12/14
+ */
 
 "use strict";
 
 var _ = require( "underscore" ),
-Backbone = require( "backbone" );
+    Backbone = require( "backbone" ),
+    $ = require( "jquery" );
 
 Backbone.$ = require( "jquery" );
 
-var _tpl:
+var _tpl;
 
 module.exports = Backbone.View.extend( {
 
@@ -23,7 +24,11 @@ module.exports = Backbone.View.extend( {
 
         this.model = oTerminalModel;
 
-        _tpl = $( "#tpl_result-list-element" ).remove().textt();
+        // en faisant comme ceci, on écrase le template à chaque fois, il ne faut l'affecter qu'une seule fois
+        // _tpl = $( "#tpl-result-list-elt" ).remove().text();
+        if( !_tpl ) {
+            _tpl = $( "#tpl-result-list-elt" ).remove().text();
+        }
     },
 
     "events": {
@@ -31,13 +36,15 @@ module.exports = Backbone.View.extend( {
     },
 
     "render": function() {
-        var oBank = this.model.get( "bank" )
+        var oBank = this.model.get( "bank" );
+
+        console.log( _tpl );
 
         this.$el
             .html( _tpl )
             .find( "a" )
                 .find( "img" )
-                    .attr( "src", "images/banks/" + oBank.icon + ".png" )
+                    .attr( "src", "images/banks/" + oBank.icon )
                     .attr( "alt", oBank.name )
                     .end()
                 .find( "strong" )
@@ -45,16 +52,14 @@ module.exports = Backbone.View.extend( {
                     .text( oBank.name )
                     .end()
                 .find( "span" )
-                    .text( ( this.model.distance * 1000 ) + "m" );
-                    
-
-        console.log( this.model )
+                    .text( ( parseFloat( this.model.get( "distance" ) ) * 1000 ) + "m" );
 
         return this;
     },
 
     "showTerminal": function( e ) {
-
+        e.preventDefault();
+        console.log( "TODO:showTerminal" );
     }
 
 } );

@@ -1,33 +1,36 @@
 /* Chèch Lajan
-*
-* /viwes/terminals-list.js - backbone terminals list
-*
-* started @ 12/12/14
-*/
+ *
+ * /views/terminals-list.js - backbone terminals list view
+ *
+ * started @ 12/12/14
+ */
 
 "use strict";
 
 var _ = require( "underscore" ),
-Backbone = require( "backbone" );
+    Backbone = require( "backbone" ),
+    $ = require( "jquery" );
 
 Backbone.$ = require( "jquery" );
 
-var TerminalElementView = require( "./view/terminals-list" )
+var TerminalElementView = require( "./terminals-list-element" );
 
 var _tpl;
 
 module.exports = Backbone.View.extend( {
 
-    "el": "<div />",
+    "el": "<section />",
 
-    "constructor": function() {
+    "constructor": function( oTerminalsCollection ) {
         Backbone.View.apply( this, arguments );
 
         this.collection = oTerminalsCollection;
 
-        console.log( "TerminalsView:init()" );
+        console.log( "TerminalsListView:init()" );
 
-        _tpl = $( "#tpl_result-list" ).remove().text();
+        if( !_tpl ) {
+            _tpl  = $( "#tpl-result-list" ).remove().text();
+        }
     },
 
     "events": {},
@@ -35,17 +38,16 @@ module.exports = Backbone.View.extend( {
     "render": function() {
 
         this.$el
-            .html( _tpl )
-            .addClass( "list" );
+            .attr( "id", "result" )
+            .html( _tpl );
 
-        var $list : this.$el.find( "ul" );
+        var $list = this.$el.find( "ul" );
 
         this.collection.each( function( oTerminalModel ) {
-            $list.append( ( new TerminalElementView( oTerminalModel ) ).render().$el )
+            ( new TerminalElementView( oTerminalModel ) ).render().$el.appendTo( $list );
         } );
 
-        return this
-
+        return this;
     },
 
 } );

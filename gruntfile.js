@@ -35,7 +35,7 @@ module.exports = function( grunt ) {
         },
         "uglify": {
             "options": {
-                "sourceMap": true //REMOVE BEFORE FLIGHT
+                "sourceMap": true // REMOVE BEFORE FLIGHT
             },
             "libs": {
                 "files": {
@@ -51,7 +51,7 @@ module.exports = function( grunt ) {
         "watch": {
             "app": {
                 "files": [ "client/**/*.js" ],
-                "option": {
+                "options": {
                     "spawn": false,
                     "livereload": true
                 },
@@ -72,6 +72,5 @@ module.exports = function( grunt ) {
         "default",
         "watch"
     ] );
-
 
 };

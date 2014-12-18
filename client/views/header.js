@@ -1,9 +1,9 @@
 /* Chèch Lajan
-*
-* /views/header.js - backbone header view
-*
-* started @ 12/12/14
-*/
+ *
+ * /views/header.js - backbone header view
+ *
+ * started @ 12/12/14
+ */
 
 "use strict";
 
@@ -24,23 +24,38 @@ module.exports = Backbone.View.extend( {
 
         console.log( "HeaderView:init()" );
 
-        _tpl = $( "#tpl_header" ).remove().text();
+        if( !_tpl ) {
+            _tpl = $( "#tpl-header" ).remove().text();
+        }
     },
 
-    "event": {
+    "events": {
         "click #reload": "reloadButtonClicked"
     },
 
     "render": function() {
         this.$el.html( _tpl ).addClass( "header" );
 
+        this.$status = this.$el.find( "header" );
 
         return this;
     },
 
+    "loading": function( bLoadingState ) {
+        this.$el.find( "#status" ).toggleClass( "loading", bLoadingState );
+    },
+
+    "getStatus": function() {
+        return this.$status.text();
+    },
+
+    "setStatus": function( sText ) {
+        this.$status.text( sText );
+    },
+
     "reloadButtonClicked": function( e ) {
-        e.preventDefault()
-        console.log( "reloadButtonClicked" )
+        e.preventDefault();
+        console.log( "reloadButtonClicked" );
     }
 
 } );

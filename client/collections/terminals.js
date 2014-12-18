@@ -1,9 +1,9 @@
 /* Chèch Lajan
-*
-* /collections/terminal.js - backbone collections for terminal
-*
-* started @ 12/12/14
-*/
+ *
+ * /collections/terminals.js - backbone collections for terminals
+ *
+ * started @ 12/12/14
+ */
 
 "use strict";
 
@@ -12,7 +12,7 @@ var _ = require( "underscore" ),
 
 Backbone.$ = require( "jquery" );
 
-model.exports = Backbone.Collection.extend( {
+module.exports = Backbone.Collection.extend( {
 
     "url": "/api/terminals",
     "model": require( "../models/terminal" ),
